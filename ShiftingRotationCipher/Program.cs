@@ -60,12 +60,12 @@ namespace ShiftingRotationCipher
 
         public static UserInput OffsetText(UserInput userInput)
         {
-            var textLength = userInput.TextInput.Length;
-            var cipherLength = userInput.ShiftingRotationChiper.Length;
-
-            var text = userInput.TextInput.ToCharArray();
             var mod = 0;
             var offset = 0;
+            var textLength = userInput.TextInput.Length;
+            var cipherLength = userInput.ShiftingRotationChiper.Length;
+            var text = userInput.TextInput.ToCharArray();
+            
             for (var i = 0; i < textLength; i++)
             {
                 if (text[i] == ' ') continue; // don't encode spaces
