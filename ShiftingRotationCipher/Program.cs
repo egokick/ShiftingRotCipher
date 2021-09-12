@@ -87,14 +87,7 @@ namespace ShiftingRotationCipher
                 else if (userInput.CipherAction == Encode)
                 {
                     offset = (textIndex + cipherIndex) % 26;
-                } 
-
-                //offset = userInput.CipherAction switch
-                //{
-                //    Encode => (NumberWang[text[i]] + NumberWang[userInput.ShiftingRotationChiper[mod]]) % 26,
-                //    Decode => (NumberWang[text[i]] - NumberWang[userInput.ShiftingRotationChiper[mod]]) % 26,
-                //    _ => offset
-                //};
+                }
                 text[i] = WangNumber[offset];
             }
             userInput.TextOutput = string.Join("", text);
