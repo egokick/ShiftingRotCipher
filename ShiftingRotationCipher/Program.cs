@@ -50,6 +50,8 @@ namespace ShiftingRotationCipher
                         Console.WriteLine();
                         Console.WriteLine("Decoded text:");
                         Console.WriteLine(decodeUserInput.TextOutput);
+                        Console.WriteLine(
+                            decodeUserInput.ShiftingRotationChiper.Substring(0, decodeUserInput.TextInput.Length));
                         break;
                     default:
                         Console.WriteLine("Input not recognized");
@@ -67,16 +69,34 @@ namespace ShiftingRotationCipher
             var mod = 0;
             var offset = 0;
             for (var i = 0; i < textLength; i++)
-            {
-                if (text[i] == ' ') continue; // don't encode spaces
+            { 
                 if (i != 0) mod = i % cipherLength; // loop the cipher if shorter than text to encode
 
-                offset = userInput.CipherAction switch
+                var textIndex = NumberWang[text[i]];
+                var cipherIndex = NumberWang[userInput.ShiftingRotationChiper[mod]];
+                var textChar = text[i];
+                var cipherChar = userInput.ShiftingRotationChiper[mod];
+                if (userInput.CipherAction == Decode)
                 {
-                    Encode => (NumberWang[text[i]] + NumberWang[userInput.ShiftingRotationChiper[mod]]) % 26,
-                    Decode => (NumberWang[text[i]] - NumberWang[userInput.ShiftingRotationChiper[mod]]) % 26,
-                    _ => offset
-                };
+                    offset = (textIndex - cipherIndex) % 26;
+                    if (offset < 0)
+                    {
+                        Console.WriteLine($"textChar: {textChar}, cipherChar: {cipherChar}");
+                        Console.WriteLine($"textCharMapInt: {textIndex}, cipherCharMapInt: {cipherIndex}");
+                        offset = offset + 26; 
+                    }
+                }
+                else if (userInput.CipherAction == Encode)
+                {
+                    offset = (textIndex + cipherIndex) % 26;
+                } 
+
+                //offset = userInput.CipherAction switch
+                //{
+                //    Encode => (NumberWang[text[i]] + NumberWang[userInput.ShiftingRotationChiper[mod]]) % 26,
+                //    Decode => (NumberWang[text[i]] - NumberWang[userInput.ShiftingRotationChiper[mod]]) % 26,
+                //    _ => offset
+                //};
                 text[i] = WangNumber[offset];
             }
             userInput.TextOutput = string.Join("", text);
