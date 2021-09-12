@@ -80,9 +80,7 @@ namespace ShiftingRotationCipher
                 {
                     offset = (textIndex - cipherIndex) % 26;
                     if (offset < 0)
-                    {
-                        Console.WriteLine($"textChar: {textChar}, cipherChar: {cipherChar}");
-                        Console.WriteLine($"textCharMapInt: {textIndex}, cipherCharMapInt: {cipherIndex}");
+                    { 
                         offset = offset + 26; 
                     }
                 }
