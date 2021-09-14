@@ -75,10 +75,7 @@
                 if (userInput.CipherAction == Decode)
                 {
                     offset = (textIndex - cipherIndex) % 26;
-                    if (offset < 0)
-                    { 
-                        offset = offset + 26; 
-                    }
+                    if (offset < 0) offset = offset + 26;
                 }
                 else if (userInput.CipherAction == Encode)
                 {
