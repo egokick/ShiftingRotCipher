@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using static ShiftingRotationCipher.CipherAction;
-
-namespace ShiftingRotationCipher
+﻿namespace ShiftingRotationCipher
 {
+    using System;
+    using System.Collections.Generic;
+    using static ShiftingRotationCipher.CipherAction;
+
     public class UserInput
     {
         public string TextInput { get; set; }
