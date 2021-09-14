@@ -1,5 +1,4 @@
-﻿namespace ShiftingRotationCipher
-{
+﻿namespace ShiftingRotationCipher {
     using System;
     using System.Collections.Generic;
     using static ShiftingRotationCipher.CipherAction;
