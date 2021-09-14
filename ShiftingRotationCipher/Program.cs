@@ -49,8 +49,6 @@
                         Console.WriteLine();
                         Console.WriteLine("Decoded text:");
                         Console.WriteLine(decodeUserInput.TextOutput);
-                        Console.WriteLine(
-                            decodeUserInput.ShiftingRotationChiper.Substring(0, decodeUserInput.TextInput.Length));
                         break;
                     default:
                         Console.WriteLine("Input not recognized");
