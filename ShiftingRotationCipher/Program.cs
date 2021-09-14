@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using static ShiftingRotationCipher.CipherAction;
+﻿namespace ShiftingRotationCipher {
+    using System;
+    using System.Collections.Generic;
+    using static ShiftingRotationCipher.CipherAction;
 
-namespace ShiftingRotationCipher
-{
     public class UserInput
     {
         public string TextInput { get; set; }
@@ -50,8 +49,6 @@ namespace ShiftingRotationCipher
                         Console.WriteLine();
                         Console.WriteLine("Decoded text:");
                         Console.WriteLine(decodeUserInput.TextOutput);
-                        Console.WriteLine(
-                            decodeUserInput.ShiftingRotationChiper.Substring(0, decodeUserInput.TextInput.Length));
                         break;
                     default:
                         Console.WriteLine("Input not recognized");
@@ -74,15 +71,11 @@ namespace ShiftingRotationCipher
 
                 var textIndex = NumberWang[text[i]];
                 var cipherIndex = NumberWang[userInput.ShiftingRotationChiper[mod]];
-                var textChar = text[i];
                 var cipherChar = userInput.ShiftingRotationChiper[mod];
                 if (userInput.CipherAction == Decode)
                 {
                     offset = (textIndex - cipherIndex) % 26;
-                    if (offset < 0)
-                    { 
-                        offset = offset + 26; 
-                    }
+                    if (offset < 0) offset = offset + 26;
                 }
                 else if (userInput.CipherAction == Encode)
                 {
