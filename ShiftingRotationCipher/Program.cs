@@ -73,7 +73,6 @@
 
                 var textIndex = NumberWang[text[i]];
                 var cipherIndex = NumberWang[userInput.ShiftingRotationChiper[mod]];
-                var textChar = text[i];
                 var cipherChar = userInput.ShiftingRotationChiper[mod];
                 if (userInput.CipherAction == Decode)
                 {
